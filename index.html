@@ -8,15 +8,15 @@
 	<div id="visualization"></div>
   <script type="text/javascript">
     var container = document.getElementById('visualization');
-    var items = [
-    {x: 1, y: 10},
-    {x: 2, y: 11},
-    {x: 3, y: 12},
-    {x: 4, y: 13},
-    {x: 6, y: 14},
-    {x: 7, y: 15}
-    ];
-    var dataset = new vis.DataSet(items);
+    /*var items = [
+    {id:1, x: 1, y: 10, start:1},
+    {id:2, x: 2, y: 11, start:2},
+    {id:3, x: 3, y: 12, start:3},
+    {id:4, x: 4, y: 13, start:4},
+    {id:5, x: 6, y: 14, start:5},
+    {id:6, x: 7, y: 15, start:6}
+    ];*/
+    var dataset = new vis.DataSet();
     var options = {
       format: {
         minorLabels: function(date,scale,step) {
@@ -38,11 +38,11 @@
     var j=16;
     setInterval(updateVal, 3000);
     function updateVal(){
-      dataset.update({x:i, y:j});
+      dataset.update({id:i, x:i, y:j, start:i});
       i++;
       j++;
     }
-    var graph2d = new vis.Graph2d(container, dataset, options);
+    var graph2d = new vis.Graph2d(container, dataset,options);
 </script>
 </body>
 </html>
